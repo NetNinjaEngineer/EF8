@@ -22,6 +22,43 @@ public class BlogsDbContext : DbContext
 
     }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Blog>()
+             .HasMany(b => b.Posts)
+             .WithOne(p => p.Blog)
+             .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Post>()
+            .HasOne(p => p.Author)
+            .WithMany(a => a.Posts)
+            .OnDelete(DeleteBehavior.SetNull);
+
+        modelBuilder.Entity<Post>()
+            .OwnsOne(p => p.Metadata, ownedNavigationBuilder =>
+            {
+                ownedNavigationBuilder.OwnsMany(m => m.TopGeographies);
+                ownedNavigationBuilder.OwnsMany(m => m.TopSearches);
+                ownedNavigationBuilder.OwnsMany(m => m.Updates, b =>
+                {
+                    b.OwnsMany(u => u.Commits);
+                });
+
+            });
+
+        modelBuilder.Entity<Author>()
+            .OwnsOne(a => a.Contact, ownedNavigationBuilder =>
+            {
+                ownedNavigationBuilder.OwnsOne(contactDetails => contactDetails.Address);
+            });
+
+        modelBuilder.Entity<Tag>()
+            .HasIndex(t => t.Text)
+            .IsUnique();
+    }
+
     public async Task Seed()
     {
         var tagEntityFramework = Tag.Create("TagEF", "Entity Framework");
