@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36202.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA.ValueObjectsUsingComplexTypes", "CA.ValueObjectsUsingComplexTypes\CA.ValueObjectsUsingComplexTypes.csproj", "{69B3244D-6703-4BA8-9139-E911A620FD44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA.JsonColumns", "CA.JsonColumns\CA.JsonColumns.csproj", "{7AAD98F0-8B4F-482A-ADC2-A4EC9F32D782}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69B3244D-6703-4BA8-9139-E911A620FD44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B3244D-6703-4BA8-9139-E911A620FD44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B3244D-6703-4BA8-9139-E911A620FD44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B3244D-6703-4BA8-9139-E911A620FD44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AAD98F0-8B4F-482A-ADC2-A4EC9F32D782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AAD98F0-8B4F-482A-ADC2-A4EC9F32D782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AAD98F0-8B4F-482A-ADC2-A4EC9F32D782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AAD98F0-8B4F-482A-ADC2-A4EC9F32D782}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {143EC764-F805-4D8D-AA9F-9F5632AD9C0C}
+	EndGlobalSection
+EndGlobal
