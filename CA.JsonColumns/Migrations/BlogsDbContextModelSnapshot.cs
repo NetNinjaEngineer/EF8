@@ -136,6 +136,8 @@ namespace CA.JsonColumns.Migrations
 
                             b1.ToTable("Authors");
 
+                            b1.ToJson("Contact");
+
                             b1.WithOwner()
                                 .HasForeignKey("AuthorId");
 

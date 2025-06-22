@@ -9,7 +9,7 @@ internal class Program
     {
         await using (var context = new BlogsDbContext())
         {
-            //await context.Database.EnsureCreatedAsync();
+            await context.Database.EnsureCreatedAsync();
             //await context.Seed();
 
             var posts = await context.Posts

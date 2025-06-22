@@ -19,11 +19,11 @@ public class BlogsDbContext : DbContext
         var connectionString = "Server=.\\SQLEXPRESS;Database=CA.JsonColumns;TrustServerCertificate=True;Integrated Security=True;MultipleActiveResultSets=true";
 
         optionsBuilder.UseSqlServer(connectionString, builder =>
-            {
-                builder.EnableRetryOnFailure();
-                builder.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
-            })
-            .LogTo(Console.WriteLine);
+        {
+            builder.EnableRetryOnFailure();
+            builder.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+        });
+        //.LogTo(Console.WriteLine);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -55,6 +55,7 @@ public class BlogsDbContext : DbContext
         modelBuilder.Entity<Author>()
             .OwnsOne(a => a.Contact, ownedNavigationBuilder =>
             {
+                ownedNavigationBuilder.ToJson();
                 ownedNavigationBuilder.OwnsOne(contactDetails => contactDetails.Address);
             });
 

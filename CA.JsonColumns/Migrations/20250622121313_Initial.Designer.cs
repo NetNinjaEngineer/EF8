@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CA.JsonColumns.Migrations
 {
     [DbContext(typeof(BlogsDbContext))]
-    [Migration("20250622113241_Initial")]
+    [Migration("20250622121313_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -138,6 +138,8 @@ namespace CA.JsonColumns.Migrations
                             b1.HasKey("AuthorId");
 
                             b1.ToTable("Authors");
+
+                            b1.ToJson("Contact");
 
                             b1.WithOwner()
                                 .HasForeignKey("AuthorId");
