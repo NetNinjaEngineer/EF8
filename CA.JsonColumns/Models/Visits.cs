@@ -20,4 +20,10 @@ public class Visits
     public double Longitude { get; private set; }
     public int Count { get; private set; }
     public List<string>? Browsers { get; set; }
+
+    public Visits WithBrowsers(List<string> browsers)
+    {
+        Browsers = browsers;
+        return this;
+    }
 }

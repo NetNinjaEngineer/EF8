@@ -27,4 +27,25 @@ public class Post
         return new Post(title, content, publishedOn);
     }
 
+    public Post WithAuthor(Author author)
+    {
+        Author = author ?? throw new ArgumentNullException(nameof(author));
+        return this;
+    }
+
+    public Post WithMetadata(PostMetadata? metadata)
+    {
+        Metadata = metadata ?? throw new ArgumentNullException(nameof(metadata));
+        return this;
+    }
+
+
+    public Post WithTags(List<Tag> tags)
+    {
+        if (tags == null) throw new ArgumentNullException(nameof(tags));
+        Tags.Clear();
+        Tags.AddRange(tags);
+        return this;
+    }
+
 }
