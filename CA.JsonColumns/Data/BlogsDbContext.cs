@@ -16,10 +16,14 @@ public class BlogsDbContext : DbContext
     {
         base.OnConfiguring(optionsBuilder);
 
-        var connectionString = "Server=.\\SQLEXPRESS;Database=CA.JSON_COLUMNS;TrustServerCertificate=True;Integrated Security= True;MultipleActiveResultSets=true";
+        var connectionString = "Server=.\\SQLEXPRESS;Database=CA.JsonColumns;TrustServerCertificate=True;Integrated Security=True;MultipleActiveResultSets=true";
 
-        optionsBuilder.UseSqlServer(connectionString);
-
+        optionsBuilder.UseSqlServer(connectionString, builder =>
+            {
+                builder.EnableRetryOnFailure();
+                builder.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+            })
+            .LogTo(Console.WriteLine);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

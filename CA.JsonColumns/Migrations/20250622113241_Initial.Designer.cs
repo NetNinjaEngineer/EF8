@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CA.JsonColumns.Migrations
 {
     [DbContext(typeof(BlogsDbContext))]
-    [Migration("20250622112438_Initial")]
+    [Migration("20250622113241_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
